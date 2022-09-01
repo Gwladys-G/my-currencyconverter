@@ -1,6 +1,7 @@
 import CurrencyRow from './CurrencyRow';
 import './index.css';
 import { useEffect, useState } from 'react';
+import ParticleBackground from './particlebackground'
 
 
 const MYHEADERS = new Headers();
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <>
+      <ParticleBackground/>
       <h1>Convert</h1>
       <CurrencyRow currencyOptions={currencyOptions} selectedCurrency={fromCurrency} onChangeCurrency={(e) => {setFromCurrency(e.target.value)}} amount={fromAmount} onChangeAmount={handleFromAmountChange}/>
       <div className='equals'>=</div>
