@@ -1,8 +1,9 @@
-import './index.css';
+import React from 'react'
 import { useEffect, useState } from 'react';
 import ParticleBackground from './particlebackground'
 import Converter from './Converter';
 import AddCurrency from './AddCurrency'
+// import './index.css';
 
 
 const MYHEADERS = new Headers();
