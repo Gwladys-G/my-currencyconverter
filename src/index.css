@@ -7,6 +7,15 @@ body {
   text-align: center;
 }
 
+.converter{
+  background-color: #e0e0e0;
+  background: #e0e0e0;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 7px 7px 14px #828282, -7px -7px 14px #646464;
+  width: 100%;
+}
+
 h1{
   margin: 0;
   margin-bottom: .5rem;
@@ -17,11 +26,14 @@ h1{
   border-radius: .3em;
   padding: .25rem;
   width: 7em;
+  box-shadow: inset 5px 5px 7px #e3dddd, inset -5px -5px 7px #f0e8e8;
 }
 
 select{
   margin-left: .5rem;
+  box-shadow: inset 5px 5px 7px #e3dddd, inset -5px -5px 7px #f0e8e8;
 }
+
 
 .equals{
   font-size: 2rem;
