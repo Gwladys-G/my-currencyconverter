@@ -1,4 +1,3 @@
-import { faLaptopHouse } from '@fortawesome/free-solid-svg-icons';
 import React from 'react'
 import CurrencyRow from './CurrencyRow';
 

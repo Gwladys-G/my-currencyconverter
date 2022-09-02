@@ -16,7 +16,7 @@ export default function AddCurrency(props) {
         <input type="text" placeholder="type symbol" id="myInput" onChange={props.onChangeExtraCurrency}/>
         <button disabled={props.ButtonInputDisable} >Use this currency</button>
       </form>
-      <p id="symbol-name">Full Symbol name <span style={{fontStyle: 'italic'}}>{props.Message}</span></p>
+      <p id="symbol-name"><span style={{fontStyle: 'italic'}}>{props.Message}</span></p>
     </div>
   )
 }
