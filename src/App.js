@@ -47,7 +47,10 @@ function App() {
         setCurrencyOptions([...Object.keys(data.rates)])
         setExchangeRate(data.rates[toCurrency])
       })
-      .catch(error => console.log('error', error));
+      .catch(error => {
+        console.log('error', error)
+        alert('Uh Oh, it looks like my App has been used too many times by too many people ! :)')
+      });
   },[fromCurrency,toCurrency])
 
 
@@ -57,7 +60,10 @@ function App() {
       .then(data => {
         setAllAvailableCurrencies(data.symbols)
       })
-      .catch(error => console.log('error', error));
+      .catch(error => {
+        console.log('error', error)
+        alert('Uh Oh, it looks like my App has been used too many times by too many people ! :)')
+      });
     },[])
 
   const handleFromAmountChange = (e) => {
