@@ -1,7 +1,7 @@
-import CurrencyRow from './CurrencyRow';
 import './index.css';
 import { useEffect, useState } from 'react';
 import ParticleBackground from './particlebackground'
+import Converter from './Converter';
 
 
 const MYHEADERS = new Headers();
@@ -54,15 +54,28 @@ function App() {
     setAmountInFromCurrency(false)
   }
 
+  const handleFromCurrencyChange = (e) =>{
+    setFromCurrency(e.target.value)
+  }
+  const handleToCurrencyChange = (e) =>{
+    setToCurrency(e.target.value)
+  }
 
 
   return (
     <>
       <ParticleBackground/>
-      <h1>Convert</h1>
-      <CurrencyRow currencyOptions={currencyOptions} selectedCurrency={fromCurrency} onChangeCurrency={(e) => {setFromCurrency(e.target.value)}} amount={fromAmount} onChangeAmount={handleFromAmountChange}/>
-      <div className='equals'>=</div>
-      <CurrencyRow currencyOptions={currencyOptions} selectedCurrency={toCurrency} onChangeCurrency={(e) => {setToCurrency(e.target.value)}} amount={toAmount} onChangeAmount={handleToAmountChange}/>
+      <Converter
+      currencyOptions={currencyOptions}
+      selectedFromCurrency={fromCurrency}
+      selectedToCurrency={toCurrency}
+      onChangeFromCurrency={handleFromCurrencyChange}
+      onChangeToCurrency={handleToCurrencyChange}
+      fromAmount={fromAmount}
+      toAmount={toAmount}
+      onChangeFromAmount={handleFromAmountChange}
+      onChangeToAmount={handleToAmountChange}
+      />
     </>
   );
 }
