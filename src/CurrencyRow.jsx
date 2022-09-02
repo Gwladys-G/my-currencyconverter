@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCirclePlus} from '@fortawesome/free-solid-svg-icons'
+import {faCircleInfo} from '@fortawesome/free-solid-svg-icons'
 
 export default function CurrencyRow(props) {
 
@@ -21,8 +21,7 @@ export default function CurrencyRow(props) {
           <option key={option} value={option}>{option}</option>
         ))}
       </select>
-      {/* <FontAwesomeIcon className="plus-sign"icon={faCirclePlus}></FontAwesomeIcon> */}
-      <button onClick={toAddDestination}> Addcurrency</button>
+      <FontAwesomeIcon onClick={toAddDestination} className="plus-sign"icon={faCircleInfo} id="info"></FontAwesomeIcon>
     </div>
   )
 }

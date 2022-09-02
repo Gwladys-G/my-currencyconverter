@@ -19,13 +19,13 @@ export default function Converter(props) {
   } = props
 
   const makeFrom = () => {
-    console.log('clicked From')
     setaddFromFrom(true)
+    document.getElementById('helper').classList.remove('hidden')
   }
 
   const maketo = () => {
-    console.log('clicked to')
     setaddFromFrom(false)
+    document.getElementById('helper').classList.remove('hidden')
   }
 
   return (

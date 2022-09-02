@@ -24,13 +24,8 @@ function App() {
   const [amount, setAmount ] = useState(1)
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
 
-  const [allAvailableCurrencies, setAllAvailableCurrencies] = useState({
-    "AED": "United Arab Emirates Dirham",
-    "AFN": "Afghan Afghani",
-    "ALL": "Albanian Lek",
-    "AMD": "Armenian Dram"
-  })
-  const [Message, setMessage] = useState("Currency Symbols need to be 3 characters long")
+  const [allAvailableCurrencies, setAllAvailableCurrencies] = useState({})
+  const [Message, setMessage] = useState("")
   const [ButtonInputDisable, setButtonInputDisable] = useState(true)
   const [addFromFrom, setaddFromFrom] =useState(true)
 
@@ -60,9 +55,7 @@ function App() {
       fetch("https://api.apilayer.com/exchangerates_data/symbols", requestOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data.symbols)
         setAllAvailableCurrencies(data.symbols)
-        console.log(allAvailableCurrencies)
       })
       .catch(error => console.log('error', error));
     },[])
@@ -105,31 +98,39 @@ function App() {
 
   const onSubmitExtraCurrency = (e) =>{
     e.preventDefault();
-    var inputVal = document.getElementById("myInput").value;
+    var inputVal = document.getElementById("myInput").value.toUpperCase();
     if (addFromFrom) {
       setFromCurrency(inputVal)
+      setMessage("-")
+      document.getElementById("myInput").value = ""
+      document.getElementById('helper').classList.add('hidden')
 
     } else {
       setToCurrency(inputVal)
+      setMessage("-")
+      document.getElementById("myInput").value = ""
+      document.getElementById('helper').classList.add('hidden')
     }
   }
 
   return (
     <>
       <ParticleBackground/>
-      <Converter
-      currencyOptions={currencyOptions}
-      selectedFromCurrency={fromCurrency}
-      selectedToCurrency={toCurrency}
-      onChangeFromCurrency={handleFromCurrencyChange}
-      onChangeToCurrency={handleToCurrencyChange}
-      fromAmount={fromAmount}
-      toAmount={toAmount}
-      onChangeFromAmount={handleFromAmountChange}
-      onChangeToAmount={handleToAmountChange}
-      setaddFromFrom={setaddFromFrom}
-      />
-      <AddCurrency onChangeExtraCurrency={onChangeExtraCurrency} Message={Message} ButtonInputDisable={ButtonInputDisable} onSubmit={onSubmitExtraCurrency} addFromFrom={addFromFrom}/>
+      <div className='container'>
+        <Converter
+        currencyOptions={currencyOptions}
+        selectedFromCurrency={fromCurrency}
+        selectedToCurrency={toCurrency}
+        onChangeFromCurrency={handleFromCurrencyChange}
+        onChangeToCurrency={handleToCurrencyChange}
+        fromAmount={fromAmount}
+        toAmount={toAmount}
+        onChangeFromAmount={handleFromAmountChange}
+        onChangeToAmount={handleToAmountChange}
+        setaddFromFrom={setaddFromFrom}
+        />
+        <AddCurrency onChangeExtraCurrency={onChangeExtraCurrency} Message={Message} ButtonInputDisable={ButtonInputDisable} onSubmit={onSubmitExtraCurrency} addFromFrom={addFromFrom}/>
+      </div>
     </>
   );
 }
