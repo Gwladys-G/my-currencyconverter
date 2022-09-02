@@ -5,4 +5,4 @@ A simple Currency Converter built using React JS and useState Hooks
 * Exchange Rates API integration
 * TSParticles 
 
-https://gwladys-g.github.io/my-currencyconverter/
+[Check it Out!](https://gwladys-g.github.io/my-currencyconverter/)
